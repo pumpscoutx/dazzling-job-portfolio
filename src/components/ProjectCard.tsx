@@ -1,5 +1,6 @@
 
 import React, { useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -78,15 +79,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <h3 className="text-lg font-medium mb-2">{title}</h3>
         <p className="text-muted-foreground text-sm mb-4">{description}</p>
         
-        <a
-          href={link}
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link
+          to={link}
           className="inline-flex items-center text-sm font-medium text-primary"
         >
           View Project
           <ArrowUpRight className="ml-1 h-4 w-4 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-        </a>
+        </Link>
       </div>
     </div>
   );

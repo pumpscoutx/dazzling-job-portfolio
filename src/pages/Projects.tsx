@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ProjectCard from '@/components/ProjectCard';
@@ -11,42 +12,42 @@ const projectsData = [
     description: "A modern e-commerce dashboard with real-time analytics, inventory management, and order processing capabilities.",
     imageSrc: "https://images.unsplash.com/photo-1557821552-17105176677c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
     tags: ["React", "Tailwind CSS", "Chart.js", "Redux"],
-    link: "https://ecommerce-dashboard-demo.vercel.app"
+    link: "/projects/ecommerce-dashboard"
   },
   {
     title: "Photography Portfolio",
     description: "A minimalist portfolio website for photographers with gallery, lightbox, and contact functionalities.",
     imageSrc: "https://images.unsplash.com/photo-1517292987719-0369a794ec0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
     tags: ["React", "Framer Motion", "Cloudinary", "Netlify"],
-    link: "https://photo-portfolio-demo.netlify.app"
+    link: "/projects/photography-portfolio"
   },
   {
     title: "Analytics Dashboard",
     description: "A comprehensive analytics dashboard with interactive data visualization, custom reporting, and user management.",
     imageSrc: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
     tags: ["React", "D3.js", "TypeScript", "Firebase"],
-    link: "https://analytics-dashboard-demo.web.app"
+    link: "/projects/analytics-dashboard"
   },
   {
     title: "Travel Journal App",
     description: "A travel journal application with location tracking, photo galleries, and interactive maps for trip planning.",
     imageSrc: "https://images.unsplash.com/photo-1503220317375-aaad61436b1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
     tags: ["Next.js", "MongoDB", "Mapbox", "Vercel"],
-    link: "https://travel-journal-demo.vercel.app"
+    link: "/projects/travel-journal"
   },
   {
     title: "Restaurant Ordering System",
     description: "A complete restaurant ordering system with menu management, table reservations, and online ordering functionality.",
     imageSrc: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
     tags: ["React", "Node.js", "Stripe", "PostgreSQL"],
-    link: "https://restaurant-order-demo.herokuapp.com"
+    link: "/projects/restaurant-ordering"
   },
   {
     title: "Task Management Platform",
     description: "A collaborative task management platform with real-time updates, team workspaces, and productivity analytics.",
     imageSrc: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
     tags: ["React", "Firebase", "Redux", "Material UI"],
-    link: "https://task-management-demo.web.app"
+    link: "/projects/task-management"
   }
 ];
 
