@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Github, Linkedin, Mail, Globe } from 'lucide-react';
+import { Github, Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -26,29 +26,18 @@ const Footer: React.FC = () => {
                 <Github size={20} />
               </a>
               <a 
-                href="https://linkedin.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={20} />
-              </a>
-              <a 
-                href="mailto:example@email.com" 
+                href="mailto:naolray@gmail.com" 
                 className="text-muted-foreground hover:text-primary transition-colors"
                 aria-label="Email"
               >
                 <Mail size={20} />
               </a>
               <a 
-                href="https://example.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
+                href="tel:+393509525512" 
                 className="text-muted-foreground hover:text-primary transition-colors"
-                aria-label="Website"
+                aria-label="Phone"
               >
-                <Globe size={20} />
+                <Phone size={20} />
               </a>
             </div>
           </div>
@@ -86,9 +75,19 @@ const Footer: React.FC = () => {
           
           <div>
             <h3 className="text-base font-medium mb-4">Contact</h3>
-            <p className="text-muted-foreground text-sm mb-2">Ancona, Italy</p>
-            <p className="text-muted-foreground text-sm mb-2">example@email.com</p>
-            <p className="text-muted-foreground text-sm">Available for remote work worldwide</p>
+            <div className="flex items-center text-muted-foreground text-sm mb-2">
+              <MapPin size={16} className="mr-2" />
+              <p>Ancona, Italy</p>
+            </div>
+            <div className="flex items-center text-muted-foreground text-sm mb-2">
+              <Mail size={16} className="mr-2" />
+              <a href="mailto:naolray@gmail.com" className="hover:text-primary transition-colors">naolray@gmail.com</a>
+            </div>
+            <div className="flex items-center text-muted-foreground text-sm mb-2">
+              <Phone size={16} className="mr-2" />
+              <a href="tel:+393509525512" className="hover:text-primary transition-colors">+39 350 952 5512</a>
+            </div>
+            <p className="text-muted-foreground text-sm mt-4">Available for remote work worldwide</p>
           </div>
         </div>
         

@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Clock, CheckCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Clock, CheckCircle, AlertCircle } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -8,6 +8,7 @@ import { Textarea } from '@/components/ui/textarea';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import AnimatedText from '@/components/AnimatedText';
+import { sendEmail } from '@/utils/emailService';
 
 const Contact = () => {
   const { toast } = useToast();
@@ -24,30 +25,62 @@ const Contact = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // Call the email service to send the email
+      const result = await sendEmail({
+        ...formData,
+        toEmail: 'naolray@gmail.com' // Your email address
+      });
+      
+      if (result.success) {
+        toast({
+          title: "Message sent successfully!",
+          description: "Thank you for reaching out. I'll get back to you soon.",
+          action: (
+            <div className="h-8 w-8 bg-green-500/20 rounded-full flex items-center justify-center">
+              <CheckCircle className="h-5 w-5 text-green-500" />
+            </div>
+          ),
+        });
+        
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        });
+      } else {
+        toast({
+          title: "Message failed to send",
+          description: result.message,
+          variant: "destructive",
+          action: (
+            <div className="h-8 w-8 bg-destructive/20 rounded-full flex items-center justify-center">
+              <AlertCircle className="h-5 w-5 text-destructive" />
+            </div>
+          ),
+        });
+      }
+    } catch (error) {
+      console.error("Error in form submission:", error);
       toast({
-        title: "Message sent successfully!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
+        title: "Something went wrong",
+        description: "Please try again later or contact me directly via email.",
+        variant: "destructive",
         action: (
-          <div className="h-8 w-8 bg-green-500/20 rounded-full flex items-center justify-center">
-            <CheckCircle className="h-5 w-5 text-green-500" />
+          <div className="h-8 w-8 bg-destructive/20 rounded-full flex items-center justify-center">
+            <AlertCircle className="h-5 w-5 text-destructive" />
           </div>
         ),
       });
-      
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-      });
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
 
   return (
@@ -80,8 +113,8 @@ const Contact = () => {
                 <Mail size={24} />
               </div>
               <h3 className="text-lg font-medium mb-2">Email</h3>
-              <a href="mailto:example@email.com" className="text-muted-foreground hover:text-primary transition-colors">
-                example@email.com
+              <a href="mailto:naolray@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
+                naolray@gmail.com
               </a>
             </div>
             
@@ -95,10 +128,12 @@ const Contact = () => {
             
             <div className="bg-white rounded-xl p-6 subtle-shadow hover-lift text-center">
               <div className="bg-secondary/50 rounded-full w-12 h-12 flex items-center justify-center mb-4 mx-auto text-primary">
-                <Clock size={24} />
+                <Phone size={24} />
               </div>
-              <h3 className="text-lg font-medium mb-2">Working Hours</h3>
-              <p className="text-muted-foreground">Available for more than 30 hrs/week</p>
+              <h3 className="text-lg font-medium mb-2">Phone</h3>
+              <a href="tel:+393509525512" className="text-muted-foreground hover:text-primary transition-colors">
+                +39 350 952 5512
+              </a>
             </div>
           </div>
         </div>
